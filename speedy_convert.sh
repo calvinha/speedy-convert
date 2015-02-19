@@ -15,7 +15,7 @@ date=
 
 function usage(){
     echo "Usage: "
-    exit 0
+    exit 1
 }
 
 
@@ -29,8 +29,6 @@ function get_lectures(){
     class_year_date="CS$class_number-$YEAR$date"
     
     url=$(printf '%s%s%s%s' "$domain$class_number" "/lectures/" "$class_year_date" "$file_type")
-    
-    cd $directory
 
     file_name="$class_year_date$file_type"
     
@@ -42,7 +40,15 @@ function get_lectures(){
 
 
 function get_assignments(){
+
+    assignment_num="$1"
+    file_type=".pdf"
+    assignment="Assignment$assignment_num"
     
+    url=$(printf '%s%s%s%s%s' "$domain$class_number" "/assignments/" "$assignment_num/" "$assignment" "$file_type")
+    wget $url
+    exit 0
+
 }
 
 #Check if the user_directory file exists 
@@ -62,9 +68,19 @@ if [ "$#" -lt $MIN_ARGUMENTS ] || [ "$#" -gt $MAX_ARGUMENTS ] ; then
 else
     class_number=$1
     date=$2
+    cd $directory
+    
     case "$#" in
         2 ) get_lectures;;
-        4 ) get_assignments;;
+        
+        4 ) regex='^[1-9]' #limit the assignment number to single digits
+
+            if [ "$3" != "-a" ] || ! [[ "$4" =~ $regex ]]; then
+                usage
+            else
+                get_assignments "$4" #Passing in the assignment number to the function 
+            fi;;
+        
         * ) usage;;
     esac
 fi
