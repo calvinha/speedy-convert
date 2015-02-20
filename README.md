@@ -27,4 +27,4 @@ This bash script is dependent on
 ## Motivation
 Opening Microsoft Powerpoint presentations has always been slow on my Mac. Thus, I convert them to a pdf file instead. Having to convert a powerpoint to pdf every time was time consuming, so I made this script to remove the unnecessary steps.
 
-This script works because Dr. Mak names his files in consistent form. 
+This script works because Dr. Mak uses a consistent format for naming his files.
