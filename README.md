@@ -2,10 +2,6 @@
 
 Quickly download lectures/assignments from Dr. Mak's SJSU course webpage 
 
-## Dependencies  
-This bash script is dependent on
-* [wget](https://www.gnu.org/software/wget/)
-* [unoconv](https://github.com/dagwieers/unoconv)
 
 ## Usage
 `./speedy_convert.sh <course> <date>`
@@ -23,6 +19,13 @@ This bash script is dependent on
 * To download assignments use the -a option after the course
 `./speedy_convert.sh 149 -a 2`
 * This downloads assignment 2 from CS 149 
+
+## Dependencies  
+This bash script is dependent on
+* [wget](https://www.gnu.org/software/wget/)
+* [unoconv](https://github.com/dagwieers/unoconv)
+
+Currently the script __only__ downloads lectures/assignments for Dr. Mak's current semester 
 
 ## Motivation
 Opening Microsoft Powerpoint presentations has always been slow on my Mac. Thus, I convert them to a pdf file instead. Having to convert a powerpoint to pdf every time was time consuming, so I made this script to remove the unnecessary steps.
