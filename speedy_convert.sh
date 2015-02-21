@@ -12,6 +12,7 @@ readonly FILE="user-directories.txt"
 readonly MIN_ARGUMENTS=2
 readonly MAX_ARGUMENTS=3
 readonly YEAR=$(date +"%y")
+readonly PROGRAM_NAME=$0
 
 
 domain="http://www.cs.sjsu.edu/~mak/CS"
@@ -20,7 +21,13 @@ directory=
 isSet=0
 
 function usage(){
-    echo "Usage: "
+    echo "Usage:"
+    echo "$PROGRAM_NAME <course> <date>"
+    echo "$PROGRAM_NAME <course> -a <assignment-number>"
+
+    echo ""
+    echo "Options:"
+    echo "-a        Download assignments"
     exit 1
 }
 
