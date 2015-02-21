@@ -1,11 +1,15 @@
 #!/bin/sh
 
-#==================================================
-# FILE: speedy_convert.sh
-# DESCRIPTION: To be added soon
-# AUTHOR: Calvin Ha
+#====================================================================
+#  FILE: speedy_convert.sh
 #
-#=================================================
+#  DESCRIPTION: Download lectures and assignments in pdf format from
+#              Dr. Mak's SJSU course web page
+#
+# REQUIREMENTS: wget, unoconv 
+#       AUTHOR: Calvin Ha
+#
+#===================================================================
 
 #Constants 
 readonly FILE="user-directories.txt"
