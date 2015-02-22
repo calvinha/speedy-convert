@@ -24,6 +24,14 @@ class_number=
 directory=
 isSet=0
 
+
+#== FUNCTION =====================================================
+#        NAME: usage
+#
+# DESCRIPTION: Display the usage information     
+#
+#=================================================================
+
 function usage(){
     echo "Usage:"
     echo "$PROGRAM_NAME <course> <date>"
@@ -34,6 +42,14 @@ function usage(){
     echo "-a        Download assignments"
     exit 1
 }
+
+#== FUNCTION =====================================================
+#        NAME: read_file
+#
+# DESCRIPTION: reads the user-directories.txt file to check if
+#              the course already has an associated dircetory
+#
+#=================================================================
 
 function read_file(){
 
@@ -53,6 +69,17 @@ function read_file(){
 
 }
 
+#== FUNCTION =====================================================
+#        NAME: check_file
+#
+# DESCRIPTION: Asks the user to specify file download destination
+#              if the course was not listed in the file
+#
+#              Creates user-directories.txt file if it doesn't
+#              exist
+#
+#=================================================================
+
 function check_file(){
     #Check if the user_directory file exists
 
@@ -69,6 +96,18 @@ function check_file(){
     fi
 }
 
+#== FUNCTION =====================================================
+#         NAME: get_lectures
+#
+#  DESCRIPTION: uses wget to download the lecture from the webpage
+#               uses unoconv to convert the pptx to a pdf file
+#                            
+#               
+#              
+#  PARAMETER 1: user specified date of the lecture
+#
+#=================================================================
+
 function get_lectures(){
     date="$1"
     file_type=".pptx"
@@ -84,6 +123,15 @@ function get_lectures(){
     exit 0 
 }
 
+#== FUNCTION =====================================================
+#         NAME: get_lectures
+#
+#  DESCRIPTION: uses wget to download the assignment from the
+#               webpage
+#              
+#  PARAMETER 1: user specified assignment number 
+#
+#=================================================================
 
 function get_assignments(){
 
