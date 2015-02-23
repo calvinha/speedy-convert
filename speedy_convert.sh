@@ -13,8 +13,7 @@
 
 #Constants 
 readonly FILE="user-directories.txt"
-readonly MIN_ARGUMENTS=2
-readonly MAX_ARGUMENTS=3
+readonly TOTAL_ARGUMENTS=3
 readonly YEAR=$(date +"%y")
 readonly PROGRAM_NAME=$0
 
@@ -49,18 +48,20 @@ function usage(){
 # DESCRIPTION: reads the user-directories.txt file to check if
 #              the course already has an associated dircetory
 #
+#   PARAMETER: keycode to check for the directory
+#
 #=================================================================
 
 function read_file(){
 
     while read line; do
-        #substring to store the class number from the file
-        class_check="${line:0:${#class_number}}"
-        #substring to store the directory from the file
-        directory_check="${line:${#class_number}+1:${#line}}"
-
-        if [ "$class_number" == "$class_check" ] ; then
-            directory=$directory_check #set the directory
+        key_code="$1"
+        #substring to store the key and check it if it matches
+        key_check="${line:0:${#key_code}}"              
+        directory_temp="${line:${#key_code}+1:${#line}}"
+        
+        if [ "$key_code" == "$key_check" ] ; then
+            directory=$directory_temp #set the directory
             isSet=1
             cd $directory
             break 
@@ -77,21 +78,21 @@ function read_file(){
 #
 #              Creates user-directories.txt file if it doesn't
 #              exist
+# PARAMETER 1: key code to check for the directory 
 #
 #=================================================================
 
 function check_file(){
     #Check if the user_directory file exists
-
     if [ -f $FILE ] ; then
-        read_file
+        read_file "$1" 
     fi
     
     if [ "$isSet" -eq  0 ] ; then 
         echo "Specify the directory where the files will be stored: "
         read directory
         touch $FILE
-        echo "$class_number $directory" >>  $FILE
+        echo "$1 $directory" >>  $FILE
         cd $directory
     fi
 }
@@ -147,26 +148,19 @@ function get_assignments(){
 
 
 #Check the total number of arguments 
-if [ "$#" -lt $MIN_ARGUMENTS ] || [ "$#" -gt $MAX_ARGUMENTS ] ; then
+if [ "$#" != $TOTAL_ARGUMENTS ] ; then
     usage
 else
-    class_number=$1
-       
-    case "$#" in
-        2 ) check_file 
-            get_lectures "$2";; #Passing in the date to the function 
-        
-        3) regex='^[1-9]' #limit the assignment number to single digits
-
-            if [ "$2" != "-a" ] || ! [[ "$3" =~ $regex ]]; then
-                usage
-            else
-                check_file 
-                get_assignments "$3" #Passing in the assignment number to the function 
-            fi;;
-        
-        * ) usage;;
-    esac
+    class_number="$1"
+    option="$2"
+    key="$1 $2" # the key is represented by the class number and option 
+    if [ "$option" == "-l" ] ;then
+        check_file "$key"
+        get_lectures "$3" #Passing in the date to the function 
+    elif [ "$option" == "-a" ]; then
+        check_file "$key"
+        get_assignments "$3" #Passing in the assignment number to the function 
+    fi
 fi
-
+    
 
