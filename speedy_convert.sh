@@ -4,7 +4,7 @@
 #  FILE: speedy_convert.sh
 #
 #  DESCRIPTION: Download lectures and assignments in pdf format from
-#              Dr. Mak's SJSU course web page
+#               Dr. Mak's SJSU course web page
 #
 # REQUIREMENTS: wget, unoconv 
 #       AUTHOR: Calvin Ha
@@ -45,10 +45,10 @@ function usage(){
 #== FUNCTION =====================================================
 #        NAME: read_file
 #
-# DESCRIPTION: reads the user-directories.txt file to check if
+# DESCRIPTION: Reads the user-directories.txt file to check if
 #              the course already has an associated dircetory
 #
-#   PARAMETER: keycode to check for the directory
+#   PARAMETER 1: keycode to check for the directory
 #
 #=================================================================
 
@@ -100,7 +100,7 @@ function check_file(){
 #== FUNCTION =====================================================
 #         NAME: get_lectures
 #
-#  DESCRIPTION: uses wget to download the lecture from the webpage
+#  DESCRIPTION: Uses wget to download the lecture from the webpage
 #               uses unoconv to convert the pptx to a pdf file
 #                            
 #               
@@ -127,7 +127,7 @@ function get_lectures(){
 #== FUNCTION =====================================================
 #         NAME: get_lectures
 #
-#  DESCRIPTION: uses wget to download the assignment from the
+#  DESCRIPTION: Uses wget to download the assignment from the
 #               webpage
 #              
 #  PARAMETER 1: user specified assignment number 
