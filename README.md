@@ -1,6 +1,6 @@
 # Speedy Convert
 
-Quickly download lectures/assignments from [Dr. Mak's SJSU course webpage](http://www.cs.sjsu.edu/~mak/)
+Quickly download lectures/assignments from [Dr. Mak's SJSU course webpage](http://www.cs.sjsu.edu/~mak/) and converts the [lectures to pdf format](#motivation). 
 
 
 ## Usage
@@ -38,7 +38,7 @@ This bash script is dependent on
 
 Currently the script __only__ downloads lectures/assignments for Dr. Mak's current semester
 
-## Motivation
+## <a name="motivation"></a>Motivation
 Opening Microsoft Powerpoint presentations has always been slow on my Mac. Thus, I convert them to a pdf file instead. Having to convert a powerpoint to pdf every time was time consuming, so I made this script to remove the unnecessary steps.
 
 This script works because Dr. Mak uses a consistent format for naming his files.
