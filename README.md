@@ -5,19 +5,19 @@ Quickly download lectures/assignments from [Dr. Mak's SJSU course webpage](http:
 
 ## Usage
 ```
-./speedy_convert.sh <course> <date>
+./speedy_convert.sh <course> -l <date>
 ```
 
 * This will download the lecture from the course on the specified date 
 
 ## Example
 ```
-./speedy_convert.sh 149 0205
+./speedy_convert.sh 149 -l 0205
 ```
 
 * This downloads the powerpoint lecture from the course CS 149 on February 5.
 * The script then converts the powerpoint to pdf storing both files to user specified directory
-* __Note__ the lead zero to indicate the month February 
+* __Note__ the leading zero to indicate the month February 
 
 ## Optional Argument
 * To download assignments use the -a option after the course
