@@ -17,7 +17,12 @@ Quickly download lectures/assignments from [Dr. Mak's SJSU course webpage](http:
 
 * This downloads the powerpoint lecture from the course CS 149 on February 5.
 * The script then converts the powerpoint to pdf storing both files to user specified directory
-* __Note__ the leading zero to indicate the month February 
+* __Note__ the leading zero to indicate the month February
+
+## Installation
+
+1. Clone the repository: git clone https://github.com/calvinha/speedy-convert.git
+2. Run ./speedy_convert.sh
 
 ## Optional Argument
 * To download assignments use the -a option after the course
