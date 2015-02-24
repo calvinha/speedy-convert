@@ -4,14 +4,14 @@ Quickly download lectures/assignments from [Dr. Mak's SJSU course webpage](http:
 
 
 ## Usage
-```
+```bash
 ./speedy_convert.sh <course> -l <date>
 ```
 
 * This will download the lecture from the course on the specified date 
 
 ## Example
-```
+```bash
 ./speedy_convert.sh 149 -l 0205
 ```
 
@@ -26,7 +26,7 @@ Quickly download lectures/assignments from [Dr. Mak's SJSU course webpage](http:
 
 ## Optional Argument
 * To download assignments use the -a option after the course
-```
+```bash
 ./speedy_convert.sh 149 -a 2
 ```
 * This downloads assignment 2 from CS 149 
