@@ -116,11 +116,18 @@ function get_lectures(){
     
     url=$(printf '%s%s%s%s' "$domain$class_number" "/lectures/" "$class_year_date" "$file_type")
 
-    file_name="$class_year_date$file_type"
+    month="${date:1:1}"
 
-    wget $url
-    unoconv -f pdf $file_name
+    day="${date:2:${#date}}"
+    date_format="_$month-$day"
     
+    new_file_name="$class_number$date_format$file_type"
+
+    wget -O $new_file_name $url
+    unoconv -f pdf $new_file_name
+
+    powerpoint_directory="${class_number}_lectures_powerpoints"
+    mv $new_file_name $powerpoint_directory
     exit 0 
 }
 
@@ -141,7 +148,9 @@ function get_assignments(){
     assignment="Assignment$assignment_num"
     
     url=$(printf '%s%s%s%s%s' "$domain$class_number" "/assignments/" "$assignment_num/" "$assignment" "$file_type")
-    wget $url
+
+    new_file_name="${class_number}_assignment$1$file_type"
+    wget -O $new_file_name $url
     exit 0
 
 }
