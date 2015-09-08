@@ -119,7 +119,7 @@ function get_lectures(){
     month="${date:1:1}"
 
     day="${date:2:${#date}}"
-    date_format="_$month-$day"
+    date_format="-$month-$day"
     
     new_file_name="$class_number$date_format$file_type"
 
@@ -149,7 +149,7 @@ function get_assignments(){
     
     url=$(printf '%s%s%s%s%s' "$domain$class_number" "/assignments/" "$assignment_num/" "$assignment" "$file_type")
 
-    new_file_name="${class_number}_assignment$1$file_type"
+    new_file_name="${class_number}-assignment$1$file_type"
     wget -O $new_file_name $url
     exit 0
 
