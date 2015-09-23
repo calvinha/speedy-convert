@@ -33,7 +33,7 @@ isSet=0
 
 function usage(){
     echo "Usage:"
-    echo "$PROGRAM_NAME <course> <date>"
+    echo "$PROGRAM_NAME <course> -l <date>"
     echo "$PROGRAM_NAME <course> -a <assignment-number>"
 
     echo ""
